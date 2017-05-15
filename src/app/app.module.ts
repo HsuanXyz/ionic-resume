@@ -12,13 +12,15 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TestComponent } from '../components/test/test';
 import { ResumeProvider } from '../providers/resume/resume';
+import { LabelPipe } from '../pipes/label/label';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ListPage,
-    TestComponent
+    TestComponent,
+    LabelPipe
   ],
   imports: [
     BrowserModule,
