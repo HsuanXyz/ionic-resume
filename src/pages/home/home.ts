@@ -9,7 +9,8 @@ import {ResumeProvider} from "../../providers/resume/resume";
 export class HomePage {
 
     resume: any;
-    debug:boolean = false;
+    titles: Array<string> = [];
+    debug: boolean = false;
 
   constructor(
       public navCtrl: NavController,
@@ -18,8 +19,14 @@ export class HomePage {
       this.resumePro.getResume()
           .then( res => {
               this.debug && console.log(res);
-              this.resume = res
+              this.resume = res;
+              console.log(this.resume)
+              return resumePro.getResumeKey();
           })
+          .then((res) => {
+          this.titles = res;
+      })
+
   }
 
 }

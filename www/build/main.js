@@ -55574,23 +55574,29 @@ var HomePage = (function () {
         var _this = this;
         this.navCtrl = navCtrl;
         this.resumePro = resumePro;
+        this.titles = [];
         this.debug = false;
         this.resumePro.getResume()
             .then(function (res) {
             _this.debug && console.log(res);
             _this.resume = res;
+            console.log(_this.resume);
+            return resumePro.getResumeKey();
+        })
+            .then(function (res) {
+            _this.titles = res;
         });
     }
     return HomePage;
 }());
 HomePage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/hsuanlee/Projects/personal/ionic-resume/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h3>Ionic Menu Starter</h3>\n\n  <p>\n    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.\n  </p>\n\n  <button ion-button secondary menuToggle>Toggle Menu</button>\n</ion-content>\n'/*ion-inline-end:"/Users/hsuanlee/Projects/personal/ionic-resume/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/Users/hsuanlee/Projects/personal/ionic-resume/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n    <h2>\n      {{\'basics\' | label}}\n    </h2>\n      <p>{{\'basics-name\' | label}} : {{resume?.basics.name}}</p>\n      <p>{{\'basics-label\' | label}} : {{resume?.basics.label}}</p>\n      <p>{{\'basics-email\' | label}} : {{resume?.basics.email}}</p>\n      <p>{{\'basics-phone\' | label}} : {{resume?.basics.phone}}</p>\n      <p>{{\'basics-website\' | label}} : {{resume?.basics.website}}</p>\n      <p>{{resume?.basics.summary}}</p>\n\n</ion-content>\n'/*ion-inline-end:"/Users/hsuanlee/Projects/personal/ionic-resume/src/pages/home/home.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_2__providers_resume_resume__["a" /* ResumeProvider */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_resume_resume__["a" /* ResumeProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_resume_resume__["a" /* ResumeProvider */]) === "function" && _b || Object])
 ], HomePage);
 
+var _a, _b;
 //# sourceMappingURL=home.js.map
 
 /***/ }),
@@ -76782,7 +76788,7 @@ __decorate([
     __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */]) === "function" && _a || Object)
 ], MyApp.prototype, "nav", void 0);
 MyApp = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({template:/*ion-inline-start:"/Users/hsuanlee/Projects/personal/ionic-resume/src/app/app.html"*/'<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of menu" (click)="openPage(p)">\n        {{p.title | label}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/hsuanlee/Projects/personal/ionic-resume/src/app/app.html"*/
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({template:/*ion-inline-start:"/Users/hsuanlee/Projects/personal/ionic-resume/src/app/app.html"*/'<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list no-lines>\n      <button menuClose ion-item *ngFor="let p of menu" (click)="openPage(p)">\n        {{p.title | label}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/hsuanlee/Projects/personal/ionic-resume/src/app/app.html"*/
     }),
     __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__providers_resume_resume__["a" /* ResumeProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_resume_resume__["a" /* ResumeProvider */]) === "function" && _e || Object])
 ], MyApp);

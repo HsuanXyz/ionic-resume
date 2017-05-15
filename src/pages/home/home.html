@@ -8,11 +8,15 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+    <h2>
+      {{'basics' | label}}
+    </h2>
+      <p>{{'basics-name' | label}} : {{resume?.basics.name}}</p>
+      <p>{{'basics-label' | label}} : {{resume?.basics.label}}</p>
+      <p>{{'basics-email' | label}} : {{resume?.basics.email}}</p>
+      <p>{{'basics-phone' | label}} : {{resume?.basics.phone}}</p>
+      <p>{{'basics-website' | label}} : {{resume?.basics.website}}</p>
+      <p>{{resume?.basics.summary}}</p>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>
