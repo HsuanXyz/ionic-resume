@@ -4,11 +4,11 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
 /*
-  Generated class for the ResumeProvider provider.
+ Generated class for the ResumeProvider provider.
 
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
+ See https://angular.io/docs/ts/latest/guide/dependency-injection.html
+ for more info on providers and Angular 2 DI.
+ */
 @Injectable()
 export class ResumeProvider {
 
@@ -20,5 +20,17 @@ export class ResumeProvider {
     return this.http.get('../assets/resume.json')
         .toPromise()
         .then( res => res.json())
+  }
+
+  getResumeKey() {
+    return this.getResume()
+        .then( res => {
+          return Object.keys(res).map(e => {
+            return {
+              title: e,
+              target: e
+            }
+          })
+        })
   }
 }

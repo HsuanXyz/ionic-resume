@@ -20,14 +20,9 @@ export class MyApp {
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public resumePro: ResumeProvider) {
     this.initializeApp();
 
-    this.resumePro.getResume()
+    this.resumePro.getResumeKey()
         .then( res => {
-          this.menu = Object.keys(res).map( e => {
-            return {
-              title:e,
-              target:e
-            }
-          })
+          this.menu = res;
         });
     // used for an example of ngFor and navigation
 

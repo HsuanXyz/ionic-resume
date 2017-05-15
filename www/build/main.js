@@ -55674,11 +55674,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /*
-  Generated class for the ResumeProvider provider.
+ Generated class for the ResumeProvider provider.
 
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
+ See https://angular.io/docs/ts/latest/guide/dependency-injection.html
+ for more info on providers and Angular 2 DI.
+ */
 var ResumeProvider = (function () {
     function ResumeProvider(http) {
         this.http = http;
@@ -55689,13 +55689,25 @@ var ResumeProvider = (function () {
             .toPromise()
             .then(function (res) { return res.json(); });
     };
+    ResumeProvider.prototype.getResumeKey = function () {
+        return this.getResume()
+            .then(function (res) {
+            return Object.keys(res).map(function (e) {
+                return {
+                    title: e,
+                    target: e
+                };
+            });
+        });
+    };
     return ResumeProvider;
 }());
 ResumeProvider = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
 ], ResumeProvider);
 
+var _a;
 //# sourceMappingURL=resume.js.map
 
 /***/ }),
@@ -76743,14 +76755,9 @@ var MyApp = (function () {
         this.resumePro = resumePro;
         this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */];
         this.initializeApp();
-        this.resumePro.getResume()
+        this.resumePro.getResumeKey()
             .then(function (res) {
-            _this.menu = Object.keys(res).map(function (e) {
-                return {
-                    title: e,
-                    target: e
-                };
-            });
+            _this.menu = res;
         });
         // used for an example of ngFor and navigation
     }
