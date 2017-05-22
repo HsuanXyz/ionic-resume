@@ -24731,3 +24731,55 @@ ion-navbar.toolbar {
     padding-top: calc(16px + 20px);
   }
 }
+
+page-home .block {
+  margin-bottom: 20px;
+}
+
+page-home h2 {
+  font-size: 1.8em;
+  font-weight: 200;
+}
+
+page-home ul {
+  padding: 0;
+}
+
+page-home ul li {
+  list-style-type: none;
+  border-left: 4px solid #46a6ff;
+  margin-bottom: 10px;
+  background-color: rgba(70, 166, 255, 0.11);
+  padding: 10px;
+  color: #777;
+}
+
+page-home p {
+  font-size: 1em;
+  padding: 0;
+  margin: 5px;
+}
+
+page-home p .label {
+  display: inline-block;
+  width: 88px;
+  color: #6e6e6e;
+}
+
+page-home p .tag {
+  background-color: #46a6ff;
+  color: #fff;
+  border-radius: 8px;
+  padding: 2px 5px;
+  margin-right: 5px;
+}
+
+page-home p .note {
+  color: #6e6e6e;
+  font-size: .8em;
+}
+
+page-home p.content {
+  color: #6e6e6e;
+  margin-top: 16px;
+}

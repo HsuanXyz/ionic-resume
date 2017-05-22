@@ -9,14 +9,51 @@
 
 <ion-content padding>
 
-    <h2>
-      {{'basics' | label}}
-    </h2>
-      <p>{{'basics-name' | label}} : {{resume?.basics.name}}</p>
-      <p>{{'basics-label' | label}} : {{resume?.basics.label}}</p>
-      <p>{{'basics-email' | label}} : {{resume?.basics.email}}</p>
-      <p>{{'basics-phone' | label}} : {{resume?.basics.phone}}</p>
-      <p>{{'basics-website' | label}} : {{resume?.basics.website}}</p>
-      <p>{{resume?.basics.summary}}</p>
+    <div class="basics block">
+        <h2>
+            {{'basics' | label}}
+        </h2>
+
+        <p><span class="label">{{'basics-name' | label}} </span>{{resume?.basics.name}}</p>
+        <p><span class="label">{{'location-address' | label}} </span>{{resume?.basics.location.city}}</p>
+        <p><span class="label">{{'basics-label' | label}} </span>{{resume?.basics.label}}</p>
+        <p><span class="label">{{'basics-email' | label}} </span>{{resume?.basics.email}}</p>
+        <p><span class="label">{{'basics-phone' | label}} </span>{{resume?.basics.phone}}</p>
+        <p><span class="label">{{'basics-website' | label}} </span>{{resume?.basics.website}}</p>
+        <p><span class="label">{{'profiles' | label}} </span>
+            <span class="tag" *ngFor="let item of resume?.basics.profiles">{{item.network}}</span>
+        </p>
+
+        <p class="content">{{resume?.basics.summary}}</p>
+
+    </div>
+
+    <div class="education block">
+        <h2>
+            {{'education' | label}}
+        </h2>
+    </div>
+
+    <div class="works block">
+
+        <h2>
+            {{'work' | label}}
+        </h2>
+
+        <div *ngFor="let work of resume?.work">
+           <p>
+               {{work.company}}
+               <small>({{work.position}})</small>
+               <br>
+               <span class="note">{{work.startDate + ' - '+ work.endDate}}</span>
+           </p>
+            <p class="content">{{work.summary}}</p>
+
+            <ul>
+                <li *ngFor="let h of work.highlights">{{h}}</li>
+            </ul>
+        </div>
+
+    </div>
 
 </ion-content>
