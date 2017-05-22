@@ -85,4 +85,23 @@
         </div>
     </div>
 
+    <div class="skills block">
+        <h2>
+            {{'skills' | label}}
+        </h2>
+
+        <div *ngFor="let item of resume?.skills">
+            <p>
+                {{item.name}}
+                <small> - {{item.level}}</small>
+                <br>
+            </p>
+            <p>
+                <span class="tag" *ngFor="let key of item?.keywords">
+                {{key}}
+                </span>
+            </p>
+        </div>
+    </div>
+
 </ion-content>
