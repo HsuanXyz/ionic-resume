@@ -24741,8 +24741,12 @@ page-home h2 {
   font-weight: 200;
 }
 
+page-home ol li {
+  color: #46a6ff;
+}
+
 page-home ul {
-  padding: 0;
+  padding-left: 0;
 }
 
 page-home ul li {
@@ -24752,6 +24756,12 @@ page-home ul li {
   background-color: rgba(70, 166, 255, 0.11);
   padding: 10px;
   color: #777;
+}
+
+page-home a {
+  display: block;
+  margin-top: 7px;
+  font-size: .8em;
 }
 
 page-home p {

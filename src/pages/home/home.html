@@ -41,9 +41,9 @@
                 <span class="note">{{item.startDate + ' - '+ item.endDate}} <small>({{item.studyType}})</small></span>
             </p>
 
-            <ul>
+            <ol>
                 <li *ngFor="let h of item.courses">{{h}}</li>
-            </ul>
+            </ol>
         </div>
     </div>
 
@@ -67,6 +67,22 @@
             </ul>
         </div>
 
+    </div>
+
+    <div class="publications block">
+        <h2>
+            {{'publications' | label}}
+        </h2>
+
+        <div *ngFor="let item of resume?.publications">
+            <p>
+                {{item.name}}
+                <small>({{item.releaseDate}})</small>
+                <br>
+                <a href="">{{item.website}}</a>
+            </p>
+            <p class="content">{{item.summary}}</p>
+        </div>
     </div>
 
 </ion-content>

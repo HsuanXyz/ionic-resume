@@ -9,9 +9,14 @@ page-home {
     font-weight: 200;
   }
 
-  ul{
-    padding: 0;
+  ol{
+    li {
+      color: #46a6ff;
+    }
+  }
 
+  ul{
+    padding-left:0;
     li{
       list-style-type:none;
       border-left: 4px solid #46a6ff;
@@ -20,6 +25,12 @@ page-home {
       padding: 10px;
       color: #777;
     }
+  }
+
+  a{
+    display: block;
+    margin-top: 7px;
+    font-size: .8em;
   }
 
   p{

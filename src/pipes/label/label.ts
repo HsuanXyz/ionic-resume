@@ -59,13 +59,13 @@ export let labelSrt = {
   "education-gpa":"GPA",
   "education-courses":"培训经历",
 
-  "awards":"奖项/证书",
+  "awards":"证书",
   "awards-title":"名称",
   "awards-date":"颁发日期",
   "awards-awarder":"授奖人",
   "awards-summary":"描述",
 
-  "publications":"作品／成就",
+  "publications":"作品",
   "publications-name":"名称",
   "publications-publisher":"作者",
   "publications-releaseDate":"发布日期",
