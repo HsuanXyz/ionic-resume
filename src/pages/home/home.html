@@ -32,6 +32,19 @@
         <h2>
             {{'education' | label}}
         </h2>
+
+        <div *ngFor="let item of resume?.education">
+            <p>
+                {{item.institution}}
+                <small>({{item.area}})</small>
+                <br>
+                <span class="note">{{item.startDate + ' - '+ item.endDate}} <small>({{item.studyType}})</small></span>
+            </p>
+
+            <ul>
+                <li *ngFor="let h of item.courses">{{h}}</li>
+            </ul>
+        </div>
     </div>
 
     <div class="works block">
