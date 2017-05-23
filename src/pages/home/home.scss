@@ -33,6 +33,11 @@ page-home {
     font-size: .8em;
   }
 
+  .note{
+    color: #6e6e6e;
+    font-size: .8em;
+  }
+
   p{
     font-size: 1em;
     padding: 0;
@@ -53,10 +58,7 @@ page-home {
       font-size: .9em;
     }
 
-    .note{
-      color: #6e6e6e;
-      font-size: .8em;
-    }
+
 
     &.content{
       color: #6e6e6e;

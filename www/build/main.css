@@ -24764,6 +24764,11 @@ page-home a {
   font-size: .8em;
 }
 
+page-home .note {
+  color: #6e6e6e;
+  font-size: .8em;
+}
+
 page-home p {
   font-size: 1em;
   padding: 0;
@@ -24783,11 +24788,6 @@ page-home p .tag {
   padding: 1px 5px;
   margin-right: 5px;
   font-size: .9em;
-}
-
-page-home p .note {
-  color: #6e6e6e;
-  font-size: .8em;
 }
 
 page-home p.content {

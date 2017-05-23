@@ -104,4 +104,16 @@
         </div>
     </div>
 
+    <div class="languages block">
+        <h2>
+            {{'languages' | label}}
+        </h2>
+
+        <ol>
+            <li *ngFor="let item of resume?.languages">
+                {{item.language}} <span class="note">{{item.fluency}}</span>
+            </li>
+        </ol>
+    </div>
+
 </ion-content>
