@@ -116,4 +116,39 @@
         </ol>
     </div>
 
+    <div class="interests block">
+        <h2>
+            {{'interests' | label}}
+        </h2>
+
+        <div *ngFor="let item of resume?.interests">
+            <p>
+                {{item.name}}
+            </p>
+            <p>
+                <span class="tag" *ngFor="let key of item?.keywords">
+                {{key}}
+                </span>
+            </p>
+        </div>
+    </div>
+
+    <div class="references block">
+
+        <h2>
+            {{'references' | label}}
+        </h2>
+
+        <div *ngFor="let item of resume?.references">
+            <p>
+                {{item.name}}
+            </p>
+
+            <ul>
+                <li>{{item.reference}}</li>
+            </ul>
+        </div>
+
+    </div>
+
 </ion-content>
