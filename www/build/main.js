@@ -42702,7 +42702,7 @@ function PanGesture_tsickle_Closure_declarations() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_chip_chip__ = __webpack_require__(116);
 /* unused harmony reexport Chip */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_content_content__ = __webpack_require__(18);
-/* unused harmony reexport Content */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_19__components_content_content__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_datetime_datetime__ = __webpack_require__(117);
 /* unused harmony reexport DateTime */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_fab_fab__ = __webpack_require__(38);
@@ -42772,7 +42772,7 @@ function PanGesture_tsickle_Closure_declarations() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__components_modal_modal_controller__ = __webpack_require__(136);
 /* unused harmony reexport ModalController */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__components_nav_nav__ = __webpack_require__(69);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_54__components_nav_nav__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_54__components_nav_nav__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__components_nav_nav_pop__ = __webpack_require__(67);
 /* unused harmony reexport NavPop */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__components_nav_nav_pop_anchor__ = __webpack_require__(138);
@@ -42889,7 +42889,7 @@ function PanGesture_tsickle_Closure_declarations() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_110__platform_dom_controller__ = __webpack_require__(8);
 /* unused harmony reexport DomController */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_111__platform_platform__ = __webpack_require__(3);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_111__platform_platform__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_111__platform_platform__["a"]; });
 /* unused harmony reexport setupPlatform */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_112__tap_click_haptic__ = __webpack_require__(35);
 /* unused harmony reexport Haptic */
@@ -55631,33 +55631,64 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var HomePage = (function () {
-    function HomePage(navCtrl, resumePro) {
+    function HomePage(navCtrl, params, resumePro) {
         var _this = this;
         this.navCtrl = navCtrl;
+        this.params = params;
         this.resumePro = resumePro;
-        this.titles = [];
         this.debug = false;
         this.resumePro.getResume()
             .then(function (res) {
             _this.debug && console.log(res);
             _this.resume = res;
-            console.log(_this.resume);
             return resumePro.getResumeKey();
-        })
-            .then(function (res) {
-            _this.titles = res;
         });
     }
+    HomePage.prototype.ionViewDidEnter = function () {
+        var params = this.params.data;
+        if (!params.t || !this[params.t]) {
+            return;
+        }
+        this.content.scrollTo(0, this[params.t].nativeElement.offsetTop, 500);
+    };
     return HomePage;
 }());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */]),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */]) === "function" && _a || Object)
+], HomePage.prototype, "content", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('languages'),
+    __metadata("design:type", Object)
+], HomePage.prototype, "languages", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('skills'),
+    __metadata("design:type", Object)
+], HomePage.prototype, "skills", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('publications'),
+    __metadata("design:type", Object)
+], HomePage.prototype, "publications", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('work'),
+    __metadata("design:type", Object)
+], HomePage.prototype, "work", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('education'),
+    __metadata("design:type", Object)
+], HomePage.prototype, "education", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('basics'),
+    __metadata("design:type", Object)
+], HomePage.prototype, "basics", void 0);
 HomePage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/hsuanlee/Projects/personal/ionic-resume/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n    <div class="basics block">\n        <h2>\n            {{\'basics\' | label}}\n        </h2>\n\n        <p><span class="label">{{\'basics-name\' | label}} </span>{{resume?.basics.name}}</p>\n        <p><span class="label">{{\'location-address\' | label}} </span>{{resume?.basics.location.city}}</p>\n        <p><span class="label">{{\'basics-label\' | label}} </span>{{resume?.basics.label}}</p>\n        <p><span class="label">{{\'basics-email\' | label}} </span>{{resume?.basics.email}}</p>\n        <p><span class="label">{{\'basics-phone\' | label}} </span>{{resume?.basics.phone}}</p>\n        <p><span class="label">{{\'basics-website\' | label}} </span>{{resume?.basics.website}}</p>\n        <p><span class="label">{{\'profiles\' | label}} </span>\n            <span class="tag" *ngFor="let item of resume?.basics.profiles">{{item.network}}</span>\n        </p>\n\n        <p class="content">{{resume?.basics.summary}}</p>\n\n    </div>\n\n    <div class="education block">\n        <h2>\n            {{\'education\' | label}}\n        </h2>\n\n        <div *ngFor="let item of resume?.education">\n            <p>\n                {{item.institution}}\n                <small>({{item.area}})</small>\n                <br>\n                <span class="note">{{item.startDate + \' - \'+ item.endDate}} <small>({{item.studyType}})</small></span>\n            </p>\n\n            <ol>\n                <li *ngFor="let h of item.courses">{{h}}</li>\n            </ol>\n        </div>\n    </div>\n\n    <div class="works block">\n\n        <h2>\n            {{\'work\' | label}}\n        </h2>\n\n        <div *ngFor="let work of resume?.work">\n           <p>\n               {{work.company}}\n               <small>({{work.position}})</small>\n               <br>\n               <span class="note">{{work.startDate + \' - \'+ work.endDate}}</span>\n           </p>\n            <p class="content">{{work.summary}}</p>\n\n            <ul>\n                <li *ngFor="let h of work.highlights">{{h}}</li>\n            </ul>\n        </div>\n\n    </div>\n\n    <div class="publications block">\n        <h2>\n            {{\'publications\' | label}}\n        </h2>\n\n        <div *ngFor="let item of resume?.publications">\n            <p>\n                {{item.name}}\n                <small>({{item.releaseDate}})</small>\n                <br>\n                <a href="">{{item.website}}</a>\n            </p>\n            <p class="content">{{item.summary}}</p>\n        </div>\n    </div>\n\n    <div class="skills block">\n        <h2>\n            {{\'skills\' | label}}\n        </h2>\n\n        <div *ngFor="let item of resume?.skills">\n            <p>\n                {{item.name}}\n                <small> - {{item.level}}</small>\n                <br>\n            </p>\n            <p>\n                <span class="tag" *ngFor="let key of item?.keywords">\n                {{key}}\n                </span>\n            </p>\n        </div>\n    </div>\n\n    <div class="languages block">\n        <h2>\n            {{\'languages\' | label}}\n        </h2>\n\n        <ol>\n            <li *ngFor="let item of resume?.languages">\n                {{item.language}} <span class="note">{{item.fluency}}</span>\n            </li>\n        </ol>\n    </div>\n\n    <div class="interests block">\n        <h2>\n            {{\'interests\' | label}}\n        </h2>\n\n        <div *ngFor="let item of resume?.interests">\n            <p>\n                {{item.name}}\n            </p>\n            <p>\n                <span class="tag" *ngFor="let key of item?.keywords">\n                {{key}}\n                </span>\n            </p>\n        </div>\n    </div>\n\n    <div class="references block">\n\n        <h2>\n            {{\'references\' | label}}\n        </h2>\n\n        <div *ngFor="let item of resume?.references">\n            <p>\n                {{item.name}}\n            </p>\n\n            <ul>\n                <li>{{item.reference}}</li>\n            </ul>\n        </div>\n\n    </div>\n\n</ion-content>\n'/*ion-inline-end:"/Users/hsuanlee/Projects/personal/ionic-resume/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/Users/hsuanlee/Projects/personal/ionic-resume/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n    <div #basics class="basics block">\n        <h2>\n            {{\'basics\' | label}}\n        </h2>\n\n        <p><span class="label">{{\'basics-name\' | label}} </span>{{resume?.basics.name}}</p>\n        <p><span class="label">{{\'location-address\' | label}} </span>{{resume?.basics.location.city}}</p>\n        <p><span class="label">{{\'basics-label\' | label}} </span>{{resume?.basics.label}}</p>\n        <p><span class="label">{{\'basics-email\' | label}} </span>{{resume?.basics.email}}</p>\n        <p><span class="label">{{\'basics-phone\' | label}} </span>{{resume?.basics.phone}}</p>\n        <p><span class="label">{{\'basics-website\' | label}} </span>{{resume?.basics.website}}</p>\n        <p><span class="label">{{\'profiles\' | label}} </span>\n            <span class="tag" *ngFor="let item of resume?.basics.profiles">{{item.network}}</span>\n        </p>\n\n        <p class="content">{{resume?.basics.summary}}</p>\n\n    </div>\n\n    <div #education class="education block">\n        <h2>\n            {{\'education\' | label}}\n        </h2>\n\n        <div *ngFor="let item of resume?.education">\n            <p>\n                {{item.institution}}\n                <small>({{item.area}})</small>\n                <br>\n                <span class="note">{{item.startDate + \' - \'+ item.endDate}} <small>({{item.studyType}})</small></span>\n            </p>\n\n            <ol>\n                <li *ngFor="let h of item.courses">{{h}}</li>\n            </ol>\n        </div>\n    </div>\n\n    <div #work class="works block">\n\n        <h2>\n            {{\'work\' | label}}\n        </h2>\n\n        <div *ngFor="let work of resume?.work">\n           <p>\n               {{work.company}}\n               <small>({{work.position}})</small>\n               <br>\n               <span class="note">{{work.startDate + \' - \'+ work.endDate}}</span>\n           </p>\n            <p class="content">{{work.summary}}</p>\n\n            <ul>\n                <li *ngFor="let h of work.highlights">{{h}}</li>\n            </ul>\n        </div>\n\n    </div>\n\n    <div #publications class="publications block">\n        <h2>\n            {{\'publications\' | label}}\n        </h2>\n\n        <div *ngFor="let item of resume?.publications">\n            <p>\n                {{item.name}}\n                <small>({{item.releaseDate}})</small>\n                <br>\n                <a href="">{{item.website}}</a>\n            </p>\n            <p class="content">{{item.summary}}</p>\n        </div>\n    </div>\n\n    <div #skills class="skills block">\n        <h2>\n            {{\'skills\' | label}}\n        </h2>\n\n        <div *ngFor="let item of resume?.skills">\n            <p>\n                {{item.name}}\n                <small> - {{item.level}}</small>\n                <br>\n            </p>\n            <p>\n                <span class="tag" *ngFor="let key of item?.keywords">\n                {{key}}\n                </span>\n            </p>\n        </div>\n    </div>\n\n    <div #languages class="languages block">\n        <h2>\n            {{\'languages\' | label}}\n        </h2>\n\n        <ol>\n            <li *ngFor="let item of resume?.languages">\n                {{item.language}} <span class="note">{{item.fluency}}</span>\n            </li>\n        </ol>\n    </div>\n\n</ion-content>\n'/*ion-inline-end:"/Users/hsuanlee/Projects/personal/ionic-resume/src/pages/home/home.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_2__providers_resume_resume__["a" /* ResumeProvider */]])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__providers_resume_resume__["a" /* ResumeProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_resume_resume__["a" /* ResumeProvider */]) === "function" && _d || Object])
 ], HomePage);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=home.js.map
 
 /***/ }),
@@ -76721,22 +76752,23 @@ var MyApp = (function () {
         });
     };
     MyApp.prototype.openPage = function (page) {
-        // Reset the content nav to have just this page
-        // we wouldn't want the back button to show in this scenario
-        console.log(page.target);
+        this.nav.setRoot(this.rootPage, {
+            t: page.target
+        });
     };
     return MyApp;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */]),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */])
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */]),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Nav */]) === "function" && _a || Object)
 ], MyApp.prototype, "nav", void 0);
 MyApp = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({template:/*ion-inline-start:"/Users/hsuanlee/Projects/personal/ionic-resume/src/app/app.html"*/'<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list no-lines>\n      <button menuClose ion-item *ngFor="let p of menu" (click)="openPage(p)">\n        {{p.title | label}}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"/Users/hsuanlee/Projects/personal/ionic-resume/src/app/app.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_5__providers_resume_resume__["a" /* ResumeProvider */]])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__providers_resume_resume__["a" /* ResumeProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_resume_resume__["a" /* ResumeProvider */]) === "function" && _e || Object])
 ], MyApp);
 
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),

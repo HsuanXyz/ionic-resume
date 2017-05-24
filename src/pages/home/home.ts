@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { Component, ViewChildren, ViewChild } from '@angular/core';
+import {NavController, NavParams, Content} from 'ionic-angular';
 import {ResumeProvider} from "../../providers/resume/resume";
 
 @Component({
@@ -9,24 +9,38 @@ import {ResumeProvider} from "../../providers/resume/resume";
 export class HomePage {
 
     resume: any;
-    titles: Array<string> = [];
+
     debug: boolean = false;
+
+    @ViewChild(Content) content: Content;
+
+    @ViewChild('languages') languages;
+    @ViewChild('skills') skills;
+    @ViewChild('publications') publications;
+    @ViewChild('work') work;
+    @ViewChild('education') education;
+    @ViewChild('basics') basics;
 
   constructor(
       public navCtrl: NavController,
+      public params: NavParams,
       public resumePro: ResumeProvider
   ) {
       this.resumePro.getResume()
           .then( res => {
               this.debug && console.log(res);
               this.resume = res;
-              console.log(this.resume)
               return resumePro.getResumeKey();
           })
-          .then((res) => {
-          this.titles = res;
-      })
 
   }
+
+    ionViewDidEnter() {
+      let params = this.params.data;
+      if( !params.t || !this[params.t]){
+         return
+      }
+        this.content.scrollTo(0,this[params.t].nativeElement.offsetTop,500);
+    }
 
 }
